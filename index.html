@@ -4,112 +4,250 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Pribadi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script>
-        // Konfigurasi warna custom
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        ocean: '#0077B6',
-                        wave: '#00B4D8',
-                        leaf: '#52B788',
-                        mint: '#95D5B2',
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'system-ui', 'sans-serif'],
-                    },
-                }
-            }
+    
+    <!-- IKON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS MURNI -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .card-gradient {
-                background: linear-gradient(135deg, #0077B6 0%, #52B788 100%);
-            }
-            .text-gradient {
-                background-clip: text;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-image: linear-gradient(to right, #0077B6, #52B788);
-            }
-            .shadow-custom {
-                box-shadow: 0 10px 30px rgba(0, 119, 182, 0.2);
-            }
+
+        body {
+            background-color: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0, 119, 182, 0.15);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #0077B6 0%, #52B788 100%);
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.6);
+            overflow: hidden;
+            margin: 0 auto 15px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-header h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .card-header p {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icon-biru {
+            background-color: rgba(0, 119, 182, 0.1);
+            color: #0077B6;
+        }
+
+        .icon-hijau {
+            background-color: rgba(45, 106, 79, 0.1);
+            color: #2D6A4F;
+        }
+
+        .icon-laut {
+            background-color: rgba(0, 180, 216, 0.1);
+            color: #00B4D8;
+        }
+
+        .icon-daun {
+            background-color: rgba(82, 183, 136, 0.1);
+            color: #52B788;
+        }
+
+        .info-text .label {
+            font-size: 11px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .info-text .value {
+            font-size: 15px;
+            color: #374151;
+            font-weight: 600;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+            margin: 20px 0;
+        }
+
+        .social-section {
+            text-align: center;
+        }
+
+        .social-title {
+            font-size: 14px;
+            color: #6b7280;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
         }
     </style>
-    <!-- Import Font Poppins agar terlihat modern -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-slate-50 font-sans flex items-center justify-center min-h-screen p-4">
+<body>
 
-    <!-- Container Utama -->
-    <div class="w-full max-w-md">
-        
-        <!-- Kartu Profil -->
-        <div class="bg-white rounded-3xl shadow-custom overflow-hidden transition-all duration-300 hover:shadow-xl">
+    <div class="card">
+        <div class="card-header">
+            <div class="avatar">
+                <!-- Ganti src ini dengan foto kamu -->
+                <img src="sasuke.jpg" alt="Foto Profil">
+            </div>
+            <h1>Widede Saputra</h1>
+            <p>Pelajar | Siswa</p>
+        </div>
+
+        <div class="card-body">
             
-            <!-- Header dengan Gradasi Warna Laut & Pantai -->
-            <div class="card-gradient p-8 text-center relative">
-                <!-- Foto Profil -->
-                <div class="w-32 h-32 mx-auto rounded-full border-4 border-white/50 overflow-hidden bg-white/20 backdrop-blur-sm mb-4">
-                    <!-- Ganti URL di bawah ini dengan foto kamu sendiri -->
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Foto Profil" class="w-full h-full object-cover">
+            <div class="info-item">
+                <div class="icon-box icon-biru">
+                    <i class="fa-solid fa-graduation-cap"></i>
                 </div>
-                <h1 class="text-[clamp(1.5rem,5vw,2rem)] font-bold text-white">NAMA LENGKAP</h1>
-                <p class="text-blue-100 font-light">Pelajar | Siswa</p>
+                <div class="info-text">
+                    <span class="label">Kelas</span>
+                    <span class="value">XII TKJ 2</span>
+                </div>
             </div>
 
-            <!-- Isi Konten -->
-            <div class="p-6 space-y-5">
-                
-                <!-- Data Diri -->
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-ocean/10 flex items-center justify-center text-ocean">
-                            <i class="fa fa-graduation-cap"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider">Kelas</p>
-                            <p class="font-semibold text-gray-700">XII TKJ 2</p> <!-- Ganti dengan kelasmu -->
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-leaf/10 flex items-center justify-center text-leaf">
-                            <i class="fa fa-building"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider">Sekolah</p>
-                            <p class="font-semibold text-gray-700">SMAN 1 Semarang</p> <!-- Ganti dengan sekolahmu -->
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-wave/10 flex items-center justify-center text-wave">
-                            <i class="fa fa-heart"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider">Hobi</p>
-                            <p class="font-semibold text-gray-700">Coding, Bermain Game, Berenang</p> <!-- Ganti hobi -->
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-mint/10 flex items-center justify-center text-leaf">
-                            <i class="fa fa-briefcase"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider">Cita-cita</p>
-                            <p class="font-semibold text-gray-700">Web Developer & Desainer</p> <!-- Ganti cita-cita -->
-                        </div>
-                    </div>
+            <div class="info-item">
+                <div class="icon-box icon-hijau">
+                    <i class="fa-solid fa-school"></i>
                 </div>
+                <div class="info-text">
+                    <span class="label">Sekolah</span>
+                    <span class="value">SMK KOMPUTAMA MAJENANG</span>
+                </div>
+            </div>
 
+            <div class="info-item">
+                <div class="icon-box icon-laut">
+                    <i class="fa-solid fa-gamepad"></i>
+                </div>
+                <div class="info-text">
+                    <span class="label">Hobi</span>
+                    <span class="value"> Bermain Game, Berenang</span>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon-box icon-daun">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div class="info-text">
+                    <span class="label">Cita-cita</span>
+                    <span class="value">Sukses</span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="social-section">
+                <h3 class="social-title">Hubungi Saya</h3>
+                <div class="social-links">
+                    <a href="widede23" class="social-link icon-biru" style="color:#0077B6">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="087723051549" class="social-link icon-hijau" style="color:#2D6A4F">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="social-link icon-laut" style="color:#00B4D8">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link icon-daun" style="color:#52B788">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
                 <!-- Garis Pemisah -->
                 <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent my-2"></div>
 
